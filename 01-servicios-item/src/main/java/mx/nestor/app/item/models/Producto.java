@@ -32,5 +32,5 @@ public class Producto {
 		this.createAt = createAt;
 	}
 	
-	
+
 }

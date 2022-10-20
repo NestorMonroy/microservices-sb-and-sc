@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import mx.nestor.app.item.models.Item;
 import mx.nestor.app.item.models.Producto;
 
-@Service("serviceRestTemplate")
+@Service
 public class ItemServiceImpl implements IItemService{
 
 	@Autowired
