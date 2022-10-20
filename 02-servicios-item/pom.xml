@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.4</version>
+		<version>2.2.11.RELEASE</version> <!--ribbon es solo para versiones < 2.4  -->
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>mx.nestor.app.item</groupId>
@@ -15,6 +15,8 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Hoxton.SR9</spring-cloud.version><!--necesario para ribbon  -->
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -33,12 +35,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>3.1.4</version>
-        </dependency>
         
+		<dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-openfeign</artifactId>
+		    <version>2.0.2.RELEASE</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+    		<version>2.0.2.RELEASE</version>
+    	</dependency>
 	</dependencies>
 
 	<build>
