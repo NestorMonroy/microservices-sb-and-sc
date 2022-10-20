@@ -15,6 +15,7 @@ import mx.nestor.app.item.models.service.IItemService;
 public class ItemController {
 	
 	@Autowired
+	@Qualifier("serviceFeign")
 	private IItemService itemService;
 	
 	@GetMapping("listar")
