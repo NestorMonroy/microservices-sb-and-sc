@@ -14,7 +14,7 @@ import mx.nestor.app.item.models.service.IItemService;
 @RestController
 public class ItemController {
 	@Autowired
-	@Qualifier("serviceFeign")
+	@Qualifier("serviceRestTemplate")
 	private IItemService itemService;
 	
 	@GetMapping("listar")
