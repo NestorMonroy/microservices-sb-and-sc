@@ -19,7 +19,6 @@ public class ItemController {
 	@GetMapping("listar")
 	public List<Item>listar(){
 		return itemService.findAll();
-		
 	}
 	
 	@GetMapping("/ver/{id}/cantidad/{cantidad}")
