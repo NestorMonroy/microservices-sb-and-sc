@@ -10,12 +10,11 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 
-
-//post:Se ejecuta despues de que el request se haya enviado 
+//Se ejecuta antes de que el request se haya enviado
 @Component
-public class PostTiempoTranscurridoFilter extends ZuulFilter {
+public class PreTiempoTranscurridoFilter extends ZuulFilter{
 
-	private static Logger log = LoggerFactory.getLogger(PostTiempoTranscurridoFilter.class);
+	private static Logger log = LoggerFactory.getLogger(PreTiempoTranscurridoFilter.class);
 
 	@Override
 	public boolean shouldFilter() {
@@ -28,25 +27,20 @@ public class PostTiempoTranscurridoFilter extends ZuulFilter {
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
 
-		log.info("Entrando a post filter...........");
+		log.info(String.format("%s request enrutado a %s", request.getMethod(), request.getRequestURL().toString()));
 
-		Long tiempoInicio = (Long) request.getAttribute("tiempoInicio");
-		Long tiempoFinal = System.currentTimeMillis();
-		Long tiempoTranscurrido = tiempoFinal - tiempoInicio;
-
-		log.info(String.format("Tiempo transcurrido en segundos %s seg.", tiempoTranscurrido.doubleValue() / 1000.00));
-		log.info(String.format("Tiempo transcurrido en milisegundos %s miliseg.", tiempoTranscurrido));
+		Long tiempoInicio = System.currentTimeMillis();
+		request.setAttribute("tiempoInicio", tiempoInicio);
 		return null;
 	}
 
 	@Override
 	public String filterType() {
-		return "post";
+		return "pre";
 	}
 
 	@Override
 	public int filterOrder() {
 		return 1;
 	}
-
 }
