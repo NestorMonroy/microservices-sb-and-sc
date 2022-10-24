@@ -8,14 +8,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 import mx.nestor.app.item.models.Item;
+import mx.nestor.app.item.models.Producto;
 import mx.nestor.app.item.models.service.IItemService;
 
 @RestController
 public class ItemController {
 
 	@Autowired
-	@Qualifier("serviceRestTemplate")
+	@Qualifier("serviceFeign")
 	private IItemService itemService;
 	
 	@GetMapping("listar")
@@ -23,8 +26,22 @@ public class ItemController {
 		return itemService.findAll();
 	}
 	
+	@HystrixCommand(fallbackMethod="metodoAlternativo")
 	@GetMapping("/ver/{id}/cantidad/{cantidad}")
 	public Item detalle(@PathVariable Long id, @PathVariable Integer cantidad) {
 		return itemService.findById(id, cantidad);
 	}
+	
+	
+	public Item metodoAlternativo(Long id, Integer cantidad) {
+		Item item = new Item();
+		Producto producto = new Producto();
+		item.setCantidad(cantidad);
+		producto.setId(id);
+		producto.setNombre("Sin nombre. no encontrado!");
+		producto.setPrecio(0.00);
+		item.setProducto(producto);
+		return item;
+	}
+	
 }
