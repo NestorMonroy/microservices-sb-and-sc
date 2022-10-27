@@ -16,6 +16,13 @@ import mx.nestor.app.item.models.Item;
 import mx.nestor.app.item.models.Producto;
 import mx.nestor.app.item.models.service.ItemService;
 
+/*@RequestParam(name="nombre")String nombre : SE RELACIONA CON EL .YML DE GATEWAY. 
+ * EL CONTROLADOR DE ITEMS, CAPTURA LA INFORMACIÓN ANEXADA AL REQUEST EN LOS FILTROS DE FÁBRICA, A TRAVÉS DE LOS MÉTODOS HANDLER.
+ * @RequestHeader(name="token-request")String token : TAMBIEN SE RECIBE LA CABECERA.
+ * required=false : PARA QUE NO SEA OBLIGATORIO MANDAR LA INFORMACIÓN EN EL REQUEST.
+ * */
+
+
 @RestController
 public class ItemController {
 	
@@ -24,7 +31,9 @@ public class ItemController {
 	private ItemService itemService;
 	
 	@GetMapping("/listar")
-	public List<Item> listar(){
+	public List<Item>listar(@RequestParam(name="nombre", required=false)String nombre, @RequestHeader(name="token-request",required=false)String token){
+		System.out.println(nombre);
+		System.out.println(token);
 		return itemService.findAll();
 	}
 	

@@ -8,14 +8,25 @@ spring:
           - Path=/api/productos/**
         filters:
           - StripPrefix=2
-          - name: EjemploCookieNestor
-            args:
-              mensaje: Hola mi mensaje personalizado
-              cookieNombre: usuario
-              cookieValor: NestorMonroy
+          # https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories
+          #- Header=token, \d+
+          #- Query=color
+          #- Header=Content-Type,application/json
+          #- Cookie=color,azul
+          - EjemploCookieNestor= Hola mi mensaje personalizado,usuario,NestorMonroy
+          #- name: EjemploCookieNestor
+          #  args:
+          #    mensaje: Hola mi mensaje personalizado
+          #    cookieNombre: usuario
+          #    cookieValor: NestorMonroy
       - id: servicio-items
         uri: lb://servicio-items
         predicates:
           - Path=/api/items/**
         filters:
           - StripPrefix=2
+          #https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories
+          - AddRequestHeader=token-request, 123456
+          - AddResponseHeader=token-response, 12345678
+          - SetResponseHeader=Content-Type, text/plain
+          - AddRequestParameter=nombre,andres
