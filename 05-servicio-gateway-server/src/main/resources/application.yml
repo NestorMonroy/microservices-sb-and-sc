@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: servicio-productos
+        uri: lb://servicio-productos
+        predicates:
+          - Path=/api/productos/**
+        filters:
+          - StripPrefix=2
+          - EjemploCookieNestor= Hola mi mensaje personalizado,usuario,NestorMonroy
+          #- name: EjemploCookieNestor
+          #  args:
+          #    mensaje: Hola mi mensaje personalizado
+          #    cookieNombre: usuario
+          #    cookieValor: NestorMonroy
+      - id: servicio-items
+        uri: lb://servicio-items
+        predicates:
+          - Path=/api/items/**
+        filters:
+          - StripPrefix=2
+          #https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gatewayfilter-factories
+          - AddRequestHeader=token-request, 123456
+          - AddResponseHeader=token-response, 12345678
+          - SetResponseHeader=Content-Type, text/plain
+          - AddRequestParameter=nombre,andres
