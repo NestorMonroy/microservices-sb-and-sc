@@ -37,11 +37,11 @@ public class ProductoController {
 	
 	@GetMapping("/ver/{id}")
 	public Producto detalle(@PathVariable Long id) throws InterruptedException {
-		if(id.equals(10L)) {
+		if(id.equals(9L)) {
 			throw new IllegalStateException("Producto no encontrado!");
 		}
 		
-		if(id.equals(7l)) {
+		if(id.equals(6L)) {
 			TimeUnit.SECONDS.sleep(5L);
 		}
 		Producto producto = productoService.findById(id);
