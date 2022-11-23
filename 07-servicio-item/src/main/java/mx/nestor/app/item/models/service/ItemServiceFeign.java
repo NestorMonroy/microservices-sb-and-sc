@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import mx.nestor.app.item.clientes.ProductoClienteRest;
 import mx.nestor.app.item.models.Item;
+import mx.nestor.app.item.models.Producto;
 
 @Service("serviceFeign")
 public class ItemServiceFeign implements ItemService {
@@ -25,4 +26,24 @@ public class ItemServiceFeign implements ItemService {
 		return new Item(clienteFeign.detalle(id), cantidad);
 	}
 
+	//CLASE69
+	@Override
+	public Producto save(Producto producto) {
+		//CLASE72
+		return clienteFeign.crear(producto);
+	}
+	
+	//CLASE69
+	@Override
+	public Producto update(Producto producto, Long id) {
+		//CLASE72
+		return clienteFeign.editar(producto, id);
+	}
+
+	//CLASE69
+	@Override
+	public void delete(Long id) {
+		//CLASE72
+		clienteFeign.eliminar(id);
+	}
 }
