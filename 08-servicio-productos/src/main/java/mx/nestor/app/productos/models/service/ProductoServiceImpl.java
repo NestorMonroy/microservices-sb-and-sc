@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mx.nestor.app.productos.models.dao.ProductoDao;
-import mx.nestor.app.productos.models.entity.Producto;
+import mx.nestor.app.commons.models.entity.Producto;
 
 @Service
 public class ProductoServiceImpl implements IProductoService {

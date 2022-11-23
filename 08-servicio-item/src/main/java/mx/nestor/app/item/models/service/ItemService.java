@@ -3,7 +3,7 @@ package mx.nestor.app.item.models.service;
 import java.util.List;
 
 import mx.nestor.app.item.models.Item;
-import mx.nestor.app.item.models.Producto;
+import mx.nestor.app.commons.models.entity.Producto;
 
 public interface ItemService {
 	public List<Item> findAll();

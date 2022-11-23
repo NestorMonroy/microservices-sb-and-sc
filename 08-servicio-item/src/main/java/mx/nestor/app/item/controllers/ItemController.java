@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import mx.nestor.app.item.models.Item;
-import mx.nestor.app.item.models.Producto;
+import mx.nestor.app.commons.models.entity.Producto;
 import mx.nestor.app.item.models.service.ItemService;
 
 /*

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import mx.nestor.app.productos.models.entity.Producto;
+import mx.nestor.app.commons.models.entity.Producto;
 import mx.nestor.app.productos.models.service.IProductoService;
 
 @RestController

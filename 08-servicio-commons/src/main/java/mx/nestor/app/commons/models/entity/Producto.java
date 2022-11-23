@@ -1,4 +1,4 @@
-package mx.nestor.app.productos.models.entity;
+package mx.nestor.app.commons.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;

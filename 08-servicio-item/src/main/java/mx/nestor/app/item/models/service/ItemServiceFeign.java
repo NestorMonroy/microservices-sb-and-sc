@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import mx.nestor.app.item.clientes.ProductoClienteRest;
 import mx.nestor.app.item.models.Item;
-import mx.nestor.app.item.models.Producto;
+import mx.nestor.app.commons.models.entity.Producto;
 
 @Service("serviceFeign")
 public class ItemServiceFeign implements ItemService {

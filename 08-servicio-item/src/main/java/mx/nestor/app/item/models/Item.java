@@ -1,5 +1,7 @@
 package mx.nestor.app.item.models;
 
+import mx.nestor.app.commons.models.entity.Producto;
+
 public class Item {
 	private Producto producto;
 	private Integer cantidad;
