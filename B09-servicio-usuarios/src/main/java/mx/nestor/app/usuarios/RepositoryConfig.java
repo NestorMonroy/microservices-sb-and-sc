@@ -5,8 +5,9 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
-import mx.nestor.app.usuarios.entity.Role;
-import mx.nestor.app.usuarios.entity.Usuario;
+import mx.nestor.app.commons.usuarios.models.entity.Usuario;
+import mx.nestor.app.commons.usuarios.models.entity.Role;
+
 
 //CLASE87
 //config: PARA CONFIGURAR EL REPOSITORIO REST.

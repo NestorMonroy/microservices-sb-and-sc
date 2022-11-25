@@ -6,7 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import mx.nestor.app.usuarios.entity.Usuario;
+import mx.nestor.app.commons.usuarios.models.entity.Usuario;
 
 //CLASE85: @RepositoryRestResource Rest Respositories
 

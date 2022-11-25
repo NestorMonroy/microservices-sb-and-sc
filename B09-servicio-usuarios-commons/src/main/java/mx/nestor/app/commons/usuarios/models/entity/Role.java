@@ -1,4 +1,4 @@
-package mx.nestor.app.usuarios.entity;
+package mx.nestor.app.commons.usuarios.models.entity;
 
 import java.io.Serializable;
 

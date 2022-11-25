@@ -1,16 +1,16 @@
-package mx.nestor.app.zuul;
+package mx.nestor.app.oauth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+@EnableFeignClients
 @EnableEurekaClient
-@EnableZuulProxy  //SE HABILITA ZUUL EN EL PROYECTO
 @SpringBootApplication
-public class B09ServicioZuulServerApplication {
+public class B09ServicioOauthApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(B09ServicioZuulServerApplication.class, args);
+		SpringApplication.run(B09ServicioOauthApplication.class, args);
 	}
 
 }
